@@ -19,4 +19,14 @@ describe('Login', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render the sign-in form heading and action', () => {
+    fixture.detectChanges();
+
+    const heading = fixture.nativeElement.querySelector('h1');
+    const button = fixture.nativeElement.querySelector('button');
+
+    expect(heading?.textContent).toContain('Welcome back');
+    expect(button?.textContent).toContain('Sign in');
+  });
 });

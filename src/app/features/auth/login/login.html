@@ -1,1 +1,35 @@
-<p>login works!</p>
+<section class="login-shell">
+  <form class="login-card" (ngSubmit)="onSubmit()">
+    <h1>Welcome back</h1>
+    <p>Sign in to continue to your admin panel.</p>
+
+    <label for="username">Username</label>
+    <input
+      id="username"
+      name="username"
+      type="text"
+      [(ngModel)]="username"
+      placeholder="Enter your username"
+    />
+
+    <label for="password">Password</label>
+    <input
+      id="password"
+      name="password"
+      type="password"
+      [(ngModel)]="password"
+      placeholder="Enter your password"
+    />
+
+    <label class="checkbox-row" for="rememberMe">
+      <input id="rememberMe" name="rememberMe" type="checkbox" [(ngModel)]="rememberMe" />
+      <span>Remember me</span>
+    </label>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <button type="submit" [disabled]="isSubmitting">
+      {{ isSubmitting ? 'Signing in...' : 'Sign in' }}
+    </button>
+  </form>
+</section>
